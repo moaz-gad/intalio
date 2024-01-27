@@ -1,17 +1,31 @@
+.userSelectorContainer {
+  margin-bottom: 16px;
+}
+
+.userSelectorLabel {
+  display: block;
+  margin-bottom: 8px; /* Space between label and user selector */
+  font-size: 0.875rem;
+}
+
 .userSelector {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between; /* Aligns chips container and add button */
   border: 1px solid #ced4da;
   border-radius: 4px;
   padding: 8px;
+  overflow: hidden; /* Prevents overflow from disrupting the layout */
 }
+
 .userChipsContainer {
   display: flex;
   align-items: center;
-  overflow-x: auto;
-  scrollbar-width: thin;
-  margin-right: 8px;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent wrapping of chips to a new line */
+  scrollbar-width: thin; /* For browsers that support it */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  margin-right: 8px; /* Space between the chips container and the add button */
 }
 
 .userChipsContainer::-webkit-scrollbar {
@@ -32,16 +46,16 @@
   align-items: center;
   background-color: #e9ecef;
   border-radius: 16px;
-  margin-right: 8px;
+  margin-right: 8px; /* Space between chips */
   padding: 4px 8px;
-  white-space: nowrap;
+  white-space: nowrap; /* Keeps the chip content on one line */
 }
 
 .avatar {
-  width: 24px; /* Small avatar size */
+  width: 24px;
   height: 24px;
   border-radius: 50%;
-  margin-right: 4px; /* Space between avatar and username */
+  margin-right: 4px;
 }
 
 .userName {
@@ -52,12 +66,16 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1rem; /* Adjust as needed */
+  font-size: 1rem;
 }
 
 .addUserButton {
   background: none;
   border: none;
   cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+}
+.addUserButton svg {
   font-size: 1.5rem;
 }
