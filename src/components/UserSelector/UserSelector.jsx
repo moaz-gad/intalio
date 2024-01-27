@@ -1,29 +1,34 @@
+import React from "react";
 import styles from "./userSelector.module.css";
+import { PiUserPlusLight } from "react-icons/pi";
 
-const UserSelector = ({ label, selectedUsers, onUsersChange }) => {
-  const handleChange = (event) => {
-    const value = Array.from(
-      event.target.selectedOptions,
-      (option) => option.value
-    );
-    onUsersChange(value);
-  };
-
+const UserSelector = ({ label, selectedUsers, onUserRemove, onAddUser }) => {
   return (
-    <div className={styles.userSelector}>
-      <label htmlFor="user-selector">{label}</label>
-      <select
-        multiple
-        id="user-selector"
-        value={selectedUsers}
-        onChange={handleChange}
-        className={styles.select}
-      >
-        {/* Dummy data for selection */}
-        <option value="user1">User 1</option>
-        <option value="user2">User 2</option>
-        {/* ... more options ... */}
-      </select>
+    <div className={styles.selectedUsersContainer}>
+      <label className={styles.userSelectorLabel}>{label}</label>
+      <div className={styles.userSelector}>
+        <div className={styles.userChipsContainer}>
+          {selectedUsers.map((user) => (
+            <div key={user.id} className={styles.userChip}>
+              <img
+                src={user.avatar}
+                alt={user.name}
+                className={styles.avatar}
+              />
+              <span className={styles.userName}>{user.name}</span>
+              <button
+                onClick={() => onUserRemove(user.id)}
+                className={styles.removeUserButton}
+              >
+                &times;
+              </button>
+            </div>
+          ))}
+        </div>
+        <button onClick={onAddUser} className={styles.addUserButton}>
+          <PiUserPlusLight />
+        </button>
+      </div>
     </div>
   );
 };
