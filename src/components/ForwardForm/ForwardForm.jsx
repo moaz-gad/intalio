@@ -5,7 +5,7 @@ import DatePicker from "../DatePicker/DatePicker";
 import CommentBox from "../CommentBox/CommentBox";
 import Button from "../Button/Button";
 import styles from "./forwardForm.module.css";
-import avatarImage from "../../assets/avatar.jpg";
+import avatarImage from "../../assets/avatar.svg";
 import { RiUserAddLine } from "react-icons/ri";
 
 const CustomDropdownIndicator = () => {
@@ -14,6 +14,38 @@ const CustomDropdownIndicator = () => {
       <RiUserAddLine />
     </div>
   );
+};
+const CustomSelectedOption = ({ data }) => {
+  return (
+    <div>
+      <img src={data.avatar} alt={data.label} width="24" height="24" />{" "}
+      {data.label}
+    </div>
+  );
+};
+const customStyles = {
+  indicatorsContainer: (provided) => ({
+    ...provided,
+    cursor: "pointer", // Set the cursor to pointer
+  }),
+  control: (provided) => ({
+    ...provided,
+    paddingRight: "10px",
+  }),
+  // Styles for the labels
+  multiValue: (provided) => ({
+    ...provided,
+    backgroundColor: "#f8f8f8",
+  }),
+
+  multiValueRemove: (provided) => ({
+    ...provided,
+    ":hover": {
+      backgroundColor: "none",
+      color: "black",
+      cursor: "pointer",
+    },
+  }),
 };
 const ForwardForm = () => {
   const toUsersDummyData = [
@@ -37,9 +69,15 @@ const ForwardForm = () => {
   const [comments, setComments] = useState("");
 
   // Options for react-select
-  const userOptions = toUsersDummyData.map((user) => ({
+  const toUsersOptions = toUsersDummyData.map((user) => ({
     value: user.id,
     label: user.name,
+    avatar: user.avatar,
+  }));
+  const ccUsersOptions = ccUsersDummyData.map((user) => ({
+    value: user.id,
+    label: user.name,
+    avatar: user.avatar,
   }));
 
   // Handlers for react-select
@@ -81,25 +119,33 @@ const ForwardForm = () => {
           <label htmlFor="toUsers">To</label>
           <Select
             id="toUsers"
-            options={userOptions}
+            options={toUsersOptions}
             isMulti
             onChange={handleToUsersChange}
             closeMenuOnSelect={false}
             components={{
               DropdownIndicator: CustomDropdownIndicator,
+              MultiValueLabel: CustomSelectedOption,
             }}
+            styles={customStyles}
           />
         </div>
         <div className={styles.selectContainer}>
           <label htmlFor="ccUsers">CC</label>
           <Select
             id="ccUsers"
-            options={userOptions}
+            options={ccUsersOptions}
             isMulti
             onChange={handleCcUsersChange}
+            components={{
+              DropdownIndicator: CustomDropdownIndicator,
+              MultiValueLabel: CustomSelectedOption,
+            }}
+            styles={customStyles}
           />
         </div>
         <Dropdown selectedPurpose={purpose} onPurposeChange={setPurpose} />
+        <label>Due date</label>
         <DatePicker selectedDate={dueDate} onDateChange={setDueDate} />
         <CommentBox comments={comments} onCommentsChange={setComments} />
         <div className={styles.actionButtons}>

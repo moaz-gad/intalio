@@ -26,78 +26,6 @@ body {
   padding: 20px;
   background: #f7f8fa;
 }
-/* Set up base styles for form elements */
-
-/* Style the dropdown to match the design */
-
-/* Style the input fields to match the design */
-input[type="text"],
-input[type="email"],
-input[type="date"],
-textarea {
-  padding: 8px 16px;
-  border: 1px solid #ced4da; /* Light grey border */
-  border-radius: 4px;
-  background-color: white;
-}
-
-/* Specific styles for the date picker input */
-input[type="date"] {
-  cursor: pointer;
-}
-
-/* General container styles */
-.container {
-  max-width: 1200px; /* Maximum width of the content */
-  margin: 0 auto; /* Center the container */
-  padding: 0 15px; /* Padding on the sides */
-}
-
-/* Utility classes for spacing */
-.mb-1 {
-  margin-bottom: 0.25rem;
-}
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-.mb-3 {
-  margin-bottom: 1rem;
-}
-.mb-4 {
-  margin-bottom: 1.5rem;
-}
-.mb-5 {
-  margin-bottom: 3rem;
-}
-
-/* Utility classes for flexbox layout */
-.d-flex {
-  display: flex;
-}
-.justify-content-between {
-  justify-content: space-between;
-}
-.align-items-center {
-  align-items: center;
-}
-
-/* Custom styles for avatars in the user selector */
-.avatar {
-  border-radius: 50%; /* Circular avatars */
-  margin-right: 8px; /* Space after avatar */
-}
-
-/* Custom styles for labels */
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #495057; /* Dark grey color for labels */
-}
-
-/* Styles for comments section */
-.comments {
-  margin-top: 1rem; /* Space above the comments section */
-}
 
 /* Placeholder color */
 ::placeholder {
@@ -116,5 +44,3 @@ label {
   align-items: center;
   margin-top: 1rem; /* Space above the tracking options */
 }
-
-/* Additional global styles can be added as needed */

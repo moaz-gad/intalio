@@ -6,6 +6,7 @@ import styles from "./dropdown.module.css";
 const Dropdown = ({ selectedPurpose, onPurposeChange }) => {
   // Example purposes - replace with your actual data
   const purposes = [
+    { label: "Not Selected", value: "not-selected" },
     { label: "Meeting", value: "meeting" },
     { label: "Project Update", value: "project-update" },
     { label: "General Inquiry", value: "general-inquiry" },

@@ -1,5 +1,3 @@
-// src/components/CommentBox/CommentBox.jsx
-
 import React from "react";
 import styles from "./commentBox.module.css";
 
@@ -16,12 +14,8 @@ const CommentBox = ({ comments, onCommentsChange, maxLength = 255 }) => {
       <textarea
         value={comments}
         onChange={handleTextChange}
-        placeholder="Enter your comments here..."
-        maxLength={maxLength} // HTML5 prop to prevent exceeding the limit
+        maxLength={maxLength}
       />
-      <div className={styles.characterCount}>
-        {comments.length} / {maxLength}
-      </div>
     </div>
   );
 };
